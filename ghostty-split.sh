@@ -123,7 +123,8 @@ done
 
 # ---------- equalize splits ----------
 sleep 0.5
-xdotool key super+ctrl+shift+equal
+gdbus call --session --dest="$DEST" --object-path "$WIN" \
+  --method "$METHOD" "equalize_splits" "[]" "{}" >/dev/null 2>&1
 sleep 0.3
 
 # ---------- launch claude in pane 1 ----------
